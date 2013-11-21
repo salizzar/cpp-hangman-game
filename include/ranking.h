@@ -1,13 +1,22 @@
 #include <iostream>
+#include <fstream>
 #include "player.h"
+#include "list.h"
 
 #pragma once
 
 class Ranking {
-public:
-  void load();
+private:
+  List<Player> players;
 
-  bool  newRecord(Player);
-  void  update(Player);
+  void insert(Player&);
+  void save();
+
+public:
+  void  load();
+  void  show();
+
+  bool  newRecord(Player&);
+  void  update(Player&);
 };
 
