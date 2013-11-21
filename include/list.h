@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include "node.h"
 
 #pragma once
@@ -13,6 +14,9 @@ private:
 public:
   List();
   ~List();
+
+  Node<T>* getHead();
+  Node<T>* getTail();
 
   bool isEmpty();
 
@@ -39,11 +43,21 @@ List<T>::~List(){
 }
 
 template <class T>
+Node<T>* List<T>::getHead(){
+  return this->head;
+}
+
+template <class T>
+Node<T>* List<T>::getTail(){
+  return this->tail;
+}
+
+template <class T>
 bool List<T>::prepend(T data){
   if (this->isEmpty())
     return this->insertFirst(data);
 
-  Node<T> *node = new Node<T>();
+  Node<T>* node = new Node<T>();
   node->data = data;
 
   node->prev = NULL;
@@ -60,7 +74,7 @@ bool List<T>::append(T data){
   if (this->isEmpty())
     return this->insertFirst(data);
 
-  Node<T> *node = new Node<T>();
+  Node<T>* node = new Node<T>();
   node->data = data;
 
   node->prev = this->tail;
@@ -73,7 +87,7 @@ bool List<T>::append(T data){
 }
 
 template <class T>
-bool List<T>::insert(Node<T> *current, T data){
+bool List<T>::insert(Node<T>* current, T data){
   if (this->isEmpty())
     return this->insertFirst(data);
 
@@ -83,7 +97,7 @@ bool List<T>::insert(Node<T> *current, T data){
   if (current == this->tail)
     return this->append(data);
 
-  Node<T> *node = new Node<T>();
+  Node<T>* node = new Node<T>();
   node->data = data;
 
   node->next = current->next;
@@ -97,7 +111,7 @@ bool List<T>::insert(Node<T> *current, T data){
 
 template <class T>
 void List<T>::clear(){
-  Node<T> *walker = this->head;
+  Node<T>* walker = this->head;
 
   while (walker != NULL){
     delete(walker);
@@ -112,7 +126,7 @@ bool List<T>::isEmpty(){
 
 template <class T>
 bool List<T>::insertFirst(T data){
-  Node<T> *node = new Node<T>();
+  Node<T>* node = new Node<T>();
   node->data = data;
 
   node->prev = node->next = NULL;
@@ -126,7 +140,7 @@ template <class T>
 int List<T>::getSize(){
   int i = 0;
 
-  Node<T> *walker = this->head;
+  Node<T>* walker = this->head;
   while (walker != NULL){
     walker = walker->next;
     i++;
@@ -142,10 +156,10 @@ T* List<T>::values(){
   if (size == 0)
     return NULL;
 
-  T *arr = (T*) malloc(size * sizeof(T));
+  T* arr = (T*) malloc(size * sizeof(T));
   int i = 0;
 
-  Node<T> *walker = this->head;
+  Node<T>* walker = this->head;
   while (walker != NULL){
     arr[i] = walker->data;
     walker = walker->next;
