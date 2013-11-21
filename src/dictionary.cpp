@@ -14,7 +14,7 @@ void Dictionary::load(){
 
     file.close();
   } catch(exception &e) {
-    cout << "\n" << "words.txt not found, cannot proceed" << "\n";
+    cout << "\n" << "words.txt not found" << "\n";
   }
 }
 
@@ -32,6 +32,6 @@ int Dictionary::getRandom(int size){
   return rand() % size;
 }
 
-Word Dictionary::parse(char *line){
+Word Dictionary::parse(char* line){
   return Word(line);
 }
