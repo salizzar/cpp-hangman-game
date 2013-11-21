@@ -15,6 +15,7 @@ public:
   Player();
   Player(char*);
 
-  static Player authenticate();
+  Score getScore();
+  char* getLogin();
 };
 

@@ -10,11 +10,11 @@ Player::Player(char* login){
   strcpy(this->login, login);
 }
 
-Player Player::authenticate(){
-  char login[12];
-  cout << "\n" << "Enter your login: "; cin >> login;
+Score Player::getScore(){
+  return this->score;
+}
 
-  Player player(login);
-  return player;
+char* Player::getLogin(){
+  return this->login;
 }
 
