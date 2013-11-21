@@ -9,7 +9,7 @@ HangmanGame::HangmanGame(Dictionary &dictionary, Ranking &ranking){
 }
 
 void HangmanGame::login(){
-  char login[12];
+  char login[LOGIN_SIZE];
 
   cout << "\n" << "Enter your login: "; cin >> login;
 
