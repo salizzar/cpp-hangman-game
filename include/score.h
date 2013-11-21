@@ -11,5 +11,12 @@ public:
 
   int   get();
   void  add(int);
+
+  bool  operator <  (Score);
+  bool  operator >  (Score);
+  bool  operator <= (Score);
+  bool  operator >= (Score);
+  bool  operator == (Score);
+  bool  operator != (Score);
 };
 
