@@ -8,7 +8,7 @@ Player::Player(char* login){
   strcpy(this->login, login);
 }
 
-Score Player::getScore(){
+Score& Player::getScore(){
   return this->score;
 }
 

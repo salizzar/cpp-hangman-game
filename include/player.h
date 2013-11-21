@@ -17,7 +17,7 @@ public:
   Player();
   Player(char*);
 
-  Score getScore();
-  char* getLogin();
+  Score&  getScore();
+  char*   getLogin();
 };
 
