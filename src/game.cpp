@@ -17,6 +17,9 @@ void Game::play(){
   Renderer renderer;
   renderer.render(tries, MAX_TRIES, match);
 
+  Score & score = this->player.getScore();
+  int points;
+
   do {
     cout << "\n" << "Digit a letter: "; cin >> letter;
     cout << "\n";
@@ -27,7 +30,8 @@ void Game::play(){
     }
 
     if (match.found(letter)){
-      match.mark(letter);
+      points = match.mark(letter);
+      score.add(points);
     } else {
       tries++;
     }
