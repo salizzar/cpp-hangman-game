@@ -12,4 +12,9 @@
 *.la
 *.a
 
+# output
 bin
+
+# generated files
+*.dat
+
