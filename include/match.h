@@ -19,7 +19,7 @@ public:
   bool  completed();
   bool  marked(int);
 
-  void  mark(char);
+  int   mark(char);
 
   char  charat(int);
 

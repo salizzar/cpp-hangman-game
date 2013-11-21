@@ -24,17 +24,21 @@ bool Match::found(char letter){
   return this->word.contains(letter);
 }
 
-void Match::mark(char letter){
+int Match::mark(char letter){
   char *word = this->word.value();
   char chr;
+  int found;
 
   for (int i = 0; i < strlen(word); i++){
     chr = word[i];
 
     if (toupper(chr) == toupper(letter)){
       this->buffer[i] = true;
+      found++;
     }
   }
+
+  return found;
 }
 
 bool Match::completed(){
