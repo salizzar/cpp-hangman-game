@@ -4,7 +4,7 @@
 
 class Score {
 private:
-  int value, penalties;
+  int value;
 
 public:
   Score();
