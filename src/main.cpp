@@ -7,6 +7,7 @@ void showMenu(){
   cout << "\n" << "--------- HANGMAN GAME --------";
   cout << "\n" << "-------------------------------";
   cout << "\n" << LOGIN     << " - Login";
+  cout << "\n" << LOGOUT    << " - Logout";
   cout << "\n" << PLAY      << " - Play Game";
   cout << "\n" << RANKING   << " - Show Ranking";
   cout << "\n" << SETTINGS  << " - Manage Settings";
@@ -35,6 +36,10 @@ int main(){
     switch (option) {
       case LOGIN:
         game.login();
+        break;
+
+      case LOGOUT:
+        game.logout();
         break;
 
       case PLAY:
