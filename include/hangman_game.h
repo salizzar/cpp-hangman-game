@@ -20,6 +20,7 @@ public:
   HangmanGame(Dictionary&, Ranking&);
 
   void login();
+  void logout();
   void run();
   void showRanking();
   void manageSettings();

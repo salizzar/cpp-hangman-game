@@ -9,8 +9,16 @@ HangmanGame::HangmanGame(Dictionary &dictionary, Ranking &ranking){
 }
 
 void HangmanGame::login(){
-  this->player = Player::authenticate();
+  char login[12];
+
+  cout << "\n" << "Enter your login: "; cin >> login;
+
+  this->player = Player(login);
   this->logged = true;
+}
+
+void HangmanGame::logout(){
+  this->logged = false;
 }
 
 void HangmanGame::run(){
@@ -21,17 +29,16 @@ void HangmanGame::run(){
 
   Word word = this->dictionary.getWord();
 
-  Game game(player, word);
+  Game game(this->player, word);
   game.play();
 
-/*
-  if (this->ranking.newRecord(player)) {
-    this->ranking.update(player);
+  if (this->ranking.newRecord(this->player)) {
+    this->ranking.update(this->player);
   }
-*/
 }
 
 void HangmanGame::showRanking(){
+  this->ranking.show();
 }
 
 void HangmanGame::manageSettings(){
