@@ -6,9 +6,11 @@
 
 #pragma once
 
+const int LOGIN_SIZE = 12;
+
 class Player {
 private:
-  char* login;
+  char  login[LOGIN_SIZE];
   Score score;
 
 public:

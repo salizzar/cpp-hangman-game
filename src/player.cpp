@@ -2,9 +2,7 @@
 
 using namespace std;
 
-Player::Player(){
-  this->login = NULL;
-}
+Player::Player(){}
 
 Player::Player(char* login){
   strcpy(this->login, login);
