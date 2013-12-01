@@ -11,8 +11,8 @@ class HangmanGame {
 private:
   bool        logged;
   Player      player;
-  Dictionary  dictionary;
-  Ranking     ranking;
+  Dictionary& dictionary;
+  Ranking&    ranking;
 
   void showMenu();
 

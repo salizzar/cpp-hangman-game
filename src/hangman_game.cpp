@@ -2,11 +2,8 @@
 
 using namespace std;
 
-HangmanGame::HangmanGame(Dictionary &dictionary, Ranking &ranking){
-  this->dictionary = dictionary;
-  this->ranking = ranking;
-  this->logged = false;
-}
+HangmanGame::HangmanGame(Dictionary &dictionary, Ranking &ranking)
+  : dictionary(dictionary), ranking(ranking), logged(false) {}
 
 void HangmanGame::login(){
   char login[LOGIN_SIZE];
