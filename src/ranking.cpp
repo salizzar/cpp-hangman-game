@@ -59,7 +59,7 @@ void Ranking::insert(Player &player){
   while (walker != NULL && walker->data.getScore() > player.getScore())
     walker = walker->next;
 
-  this->players.insert(walker, player);
+  this->players.insertBefore(walker, player);
 }
 
 void Ranking::save(){
