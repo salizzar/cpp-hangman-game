@@ -3,7 +3,7 @@
 using namespace std;
 
 Game::Game(Player &player, Word &word){
-  this->player = player;
+  this->player = &player;
   this->word = word;
 }
 
@@ -17,7 +17,7 @@ void Game::play(){
   Renderer renderer;
   renderer.render(tries, MAX_TRIES, match);
 
-  Score & score = this->player.getScore();
+  Score& score = this->player->getScore();
   int points;
 
   do {

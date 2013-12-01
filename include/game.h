@@ -10,7 +10,7 @@ const int MAX_TRIES = 7;
 
 class Game {
 private:
-  Player  player;
+  Player* player;
   Word    word;
 
 public:
