@@ -22,7 +22,7 @@ public:
 
   bool prepend(T);
   bool append(T);
-  bool insert(Node<T>*, T);
+  bool insertBefore(Node<T>*, T);
 
   void clear();
 
@@ -39,7 +39,8 @@ List<T>::List(){
 
 template <class T>
 List<T>::~List(){
-  this->clear();
+  if (!this->isEmpty())
+    this->clear();
 }
 
 template <class T>
@@ -87,24 +88,21 @@ bool List<T>::append(T data){
 }
 
 template <class T>
-bool List<T>::insert(Node<T>* current, T data){
+bool List<T>::insertBefore(Node<T>* current, T data){
   if (this->isEmpty())
     return this->insertFirst(data);
 
   if (current == this->head)
     return this->prepend(data);
 
-  if (current == this->tail)
-    return this->append(data);
-
   Node<T>* node = new Node<T>();
   node->data = data;
 
-  node->next = current->next;
-  node->prev = current;
+  node->prev = current->prev;
+  node->next = current;
 
-  current->next->prev = node;
-  current->next = node;
+  current->prev->next = node;
+  current->prev = node;
 
   return true;
 }
